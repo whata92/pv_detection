@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "train",
+            "type": "python",
+            "request": "launch",
+            "program": "/workspace/src/tools/train.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["/workspace/configs/segformer/segformer_mit-b4_512x512_160k_ade20k.py"]
+        }
+    ]
+}
