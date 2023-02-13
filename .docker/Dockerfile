@@ -29,18 +29,22 @@ SHELL ["/bin/bash", "-c"]
 
 COPY requirements.txt /tmp
 WORKDIR /tmp
+RUN python3.9 -m pip install --upgrade pip
 RUN python3.9 -m pip install -r requirements.txt
+RUN python3.9 -m pip install -U openmim
+RUN python3.9 -m mim install mmcv-full
+RUN python3.9 -m pip install mmsegmentation
 
 WORKDIR /workspace
 
-# # Add user
-# ARG USER_ID
-# ARG GROUP_ID
-# RUN addgroup --gid $GROUP_ID user
-# RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
-# RUN usermod -aG sudo user
-# RUN passwd -d user
-# USER user
+# Add user
+ARG USER_ID
+ARG GROUP_ID
+RUN addgroup --gid $GROUP_ID user
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
+RUN usermod -aG sudo user
+RUN passwd -d user
+USER user
 
 # Create python alias
 RUN mkdir -p $HOME/bin
