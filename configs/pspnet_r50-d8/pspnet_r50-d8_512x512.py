@@ -109,7 +109,7 @@ data = dict(
     )
 )
 log_config = dict(
-    interval=50, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
+    interval=100, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 load_from = None
@@ -119,6 +119,6 @@ cudnn_benchmark = True
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
 optimizer_config = dict()
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
-runner = dict(type='IterBasedRunner', max_iters=40000)
-checkpoint_config = dict(by_epoch=False, interval=50)
+runner = dict(type='IterBasedRunner', max_iters=5000)
+checkpoint_config = dict(by_epoch=False, interval=100)
 evaluation = dict(interval=50, metric='mIoU', pre_eval=True)
