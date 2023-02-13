@@ -11,7 +11,26 @@
             "program": "/workspace/src/tools/train.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["/workspace/configs/segformer/segformer_mit-b4_512x512_160k_ade20k.py"]
+            "args": [
+                "/workspace/configs/deeplabv3_plus/deeplabv3plus_r50-d8_512x512.py",
+                "--load-from",
+                "/workspace/configs/deeplabv3_plus/deeplabv3plus_r50-d8_512x512.pth"
+            ]
+        },
+        {
+            "name": "infer",
+            "type": "python",
+            "request": "launch",
+            "program": "/workspace/src/tools/infer.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "/workspace/data/test/test.png",
+                "/workspace/configs/pspnet_r50-d8/pspnet_r50-d8_512x512_40k_cityscapes.py",
+                "/workspace/weights/iter_3650.pth",
+                "--out-file",
+                "/workspace/output.png"
+            ]
         }
     ]
 }
