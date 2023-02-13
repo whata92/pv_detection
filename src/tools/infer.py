@@ -37,7 +37,6 @@ def main():
         model,
         args.img,
         result,
-        get_palette(args.palette),
         opacity=args.opacity,
         out_file=args.out_file)
 
